@@ -1,0 +1,39 @@
+<ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let pelicula of peliculas">
+
+        <ion-row *ngIf="pares" size="12">
+            <ion-col>
+                <ion-card (click)="verDetalle(pelicula.id)">
+                    <img [class]="customClass" [src]="pelicula[imagePath] | images" alt="">
+                </ion-card>
+            </ion-col>
+
+            <ion-col size="12">
+                <ion-card>
+                    <img [class]="customClass" [src]="pelicula[imagePath] | images" alt="">
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="!pares">
+            <ion-col size="12">
+                <ion-card (click)="verDetalle(pelicula.id)">
+                    <img [class]="customClass" [src]="pelicula[imagePath] | images" alt="">
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+
+    </ion-slide>
+
+    <ion-slide class="slide-mas">
+        <ion-button expand="full"
+                    class="btn-mas"
+                    size="large"
+                    (click)="onClick()">
+            <ion-icon name="add"
+                      slot="icon-only">
+            </ion-icon>
+        </ion-button>
+    </ion-slide>
+</ion-slides>
